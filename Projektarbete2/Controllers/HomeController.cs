@@ -91,6 +91,8 @@ namespace Projektarbete2.Controllers
                 FakturaEdit.Quantity = FakturaItem.Quantity;
                 FakturaEdit.Total = FakturaItem.Total;
 
+                FakturaEdit.Total = FakturaEdit.Price * FakturaEdit.Quantity;
+
                 _entities.SaveChanges();
                 // TODO: Add update logic here
 
@@ -118,6 +120,14 @@ namespace Projektarbete2.Controllers
         {
             try
             {
+                Faktura_tabel FakturaDelete = _entities.Faktura_tabel.FirstOrDefault(s => s.Id.Equals(id));
+                if (FakturaDelete != null)
+                {
+                    _entities.DeleteObject(FakturaDelete);
+                    _entities.SaveChanges();
+                }
+ 
+
                 // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
