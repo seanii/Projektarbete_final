@@ -44,7 +44,12 @@ namespace Projektarbete2.Controllers
             try
             {
                 // TODO: Add insert logic here
+     
                 _entities.AddToFaktura_tabel(FakturaToCreate);
+
+                //Räkna Total
+                FakturaToCreate.Total = FakturaToCreate.Price * FakturaToCreate.Quantity;
+
                 _entities.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -57,19 +62,36 @@ namespace Projektarbete2.Controllers
         //
         // GET: /Home/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = -1)
         {
-            return View();
+            var FakturaItem = _entities.Faktura_tabel.SingleOrDefault(p => p.Id == id);
+
+            if (FakturaItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(FakturaItem);
         }
 
         //
         // POST: /Home/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Faktura_tabel FakturaItem)
         {
             try
             {
+                var FakturaEdit = _entities.Faktura_tabel.Single(p => p.Id ==id);
+
+                FakturaEdit.Name = FakturaItem.Name;
+                FakturaEdit.City = FakturaItem.City;
+                FakturaEdit.Deadline = FakturaItem.Deadline;
+                FakturaEdit.Article = FakturaItem.Article;
+                FakturaEdit.Price = FakturaItem.Price;
+                FakturaEdit.Quantity = FakturaItem.Quantity;
+                FakturaEdit.Total = FakturaItem.Total;
+
+                _entities.SaveChanges();
                 // TODO: Add update logic here
 
                 return RedirectToAction("Index");
