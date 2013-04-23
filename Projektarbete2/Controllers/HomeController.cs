@@ -21,11 +21,19 @@ namespace Projektarbete2.Controllers
 
         //
         // GET: /Home/Details/5
-
-        public ActionResult Details(int id)
+        public ActionResult Print(int id = -1)
         {
-            return View();
+            var FakturaItem = _entities.Faktura_tabel.SingleOrDefault(p => p.Id == id);
+
+            if (FakturaItem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(FakturaItem);
         }
+
+
+        
 
         //
         // GET: /Home/Create

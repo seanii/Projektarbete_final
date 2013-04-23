@@ -1,0 +1,50 @@
+﻿@model Projektarbete2.Models.Faktura_tabel
+
+@{
+    ViewBag.Title = "Print";
+}
+<link href="/Content/print.css" rel="stylesheet" />
+
+
+<fieldset>
+    <legend>Faktura_tabel</legend>
+
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+   
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deadline)
+    </div>
+
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Article)
+    </div>
+
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+
+    
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Total)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
