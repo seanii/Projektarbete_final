@@ -4,7 +4,35 @@
 	width: 1000px;
 	height: 1000px;
 	background-repeat: no-repeat;
+	box-shadow: 1px 10px 19px #888;
 }
-.display-label{
-	border: 2px solid red;
+
+#name{	
+	left: 540px;
+	top: 70px;
 }
+#city{
+	left: 508px;
+	top: 175px;
+}
+#article{
+	left: -120px;
+	top: 320px;
+}
+#price{
+	left: 180px;
+	top: 320px;
+}
+#quantity{
+	left: 450px;
+	top: 320px;
+}
+
+
+
+.display-field{
+	position: relative;
+	display: inline;
+
+}
+

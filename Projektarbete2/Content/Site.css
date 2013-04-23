@@ -605,6 +605,9 @@ tr.pager td {
         margin: 10px;
         text-align: center;
     }
+    header {
+        border: 5px solid red;
+    }
 
     /* login */
     #login {
@@ -755,4 +758,8 @@ tr.pager td {
             margin: 0;
         }
      
+}
+.logga{
+    width: 200px;
+
 }
